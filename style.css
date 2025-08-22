@@ -1,0 +1,92 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+
+body {
+    font-family: 'Poppins', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    color: #fff;
+    margin: 0;
+    background: linear-gradient(135deg, #6e45e2, #88d3ce, #ff2e63, #08d9d6);
+    background-size: 400% 400%;
+    animation: moveGradient 15s ease infinite;
+    user-select: none; /* Prevents text selection during drag */
+}
+
+@keyframes moveGradient {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.hidden { display: none !important; }
+
+#form-container, #game-container, #records-container {
+    background: rgba(0, 0, 0, 0.3);
+    padding: 2em;
+    border-radius: 20px;
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    text-align: center;
+    width: 90%;
+    max-width: 600px;
+}
+
+#game-container { max-width: 650px; }
+
+h1, h2, h3 { font-weight: 700; }
+
+input {
+    width: calc(100% - 2em); padding: 1em; margin: 0.8em 0;
+    border: none; border-radius: 8px; background: rgba(255, 255, 255, 0.2);
+    color: #fff; font-size: 1em;
+}
+input::placeholder { color: #eee; }
+
+button {
+    padding: 0.8em 1.5em; border: none; border-radius: 8px;
+    background: #ff2e63; color: #fff; cursor: pointer;
+    font-size: 1em; font-weight: 600; transition: all 0.3s ease;
+    margin: 0.5em;
+}
+button:hover { background: #08d9d6; color: #252a34; transform: translateY(-3px); }
+
+#level-info { font-size: 1.3em; font-weight: 600; margin-bottom: 1em; color: #f1f2f6; }
+#game-stats { display: flex; justify-content: space-around; margin-bottom: 1em; font-size: 1.2em; }
+#current-word { font-size: 2em; font-weight: 700; letter-spacing: 4px; min-height: 45px; color: #feca57; }
+#message { min-height: 20px; }
+
+#letter-grid {
+    display: grid; grid-template-columns: repeat(5, 1fr); gap: 10px;
+    margin: 1.5em auto; max-width: 380px;
+}
+.grid-cell {
+    width: 65px; height: 65px; background: rgba(255, 255, 255, 0.1);
+    border-radius: 12px; display: flex; justify-content: center; align-items: center;
+    font-size: 2em; font-weight: 700; cursor: pointer; transition: all 0.2s ease;
+}
+.grid-cell.path { background: #feca57; color: #333; transform: scale(1.1); }
+.grid-cell.bonus { box-shadow: 0 0 15px #08d9d6; }
+
+#found-words-list {
+    display: flex; flex-wrap: wrap; gap: 10px; justify-content: center;
+    background: rgba(0, 0, 0, 0.2); border-radius: 10px; padding: 1em;
+    min-height: 50px; max-height: 120px; overflow-y: auto;
+}
+.found-word-item { padding: 0.3em 0.8em; border-radius: 6px; font-weight: 600; transition: background-color 2s ease-in-out; }
+
+/* Modal styles */
+#level-up-modal {
+    position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.7); display: flex;
+    justify-content: center; align-items: center; z-index: 1000;
+}
+.modal-content {
+    background: rgba(0, 0, 0, 0.5); padding: 2em; border-radius: 20px;
+    backdrop-filter: blur(10px); text-align: center;
+    animation: fadeIn 0.5s ease;
+}
+@keyframes fadeIn { from { opacity: 0; transform: scale(0.8); } to { opacity: 1; transform: scale(1); } }

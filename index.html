@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LetterGrid Levels - ABC Puzzle Game</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div id="form-container">
+        <div class="form-box">
+            <h2>Shaheen School and Coaching Center</h2>
+            <p class="brand-phone">03138682068</p>
+            <h3>Player Registration</h3>
+            <form id="player-form">
+                <input type="text" id="name" placeholder="Full Name" required>
+                <input type="text" id="class" placeholder="Class" required>
+                <input type="tel" id="phone" placeholder="Phone Number" required>
+                <button type="submit">Start Game</button>
+            </form>
+        </div>
+    </div>
+
+    <div id="game-container" class="hidden">
+        <header>
+            <h1>LetterGrid Levels</h1>
+            <div class="brand-info">
+                <p>Shaheen School and Coaching Center - 03138682068</p>
+            </div>
+        </header>
+        <main>
+            <div id="level-info">
+                <span id="level-display">Level: 1</span> |
+                <span id="stage-display">Stage: 1</span>
+            </div>
+            <div id="game-stats">
+                <div id="score-container">Score: <span id="score">0</span></div>
+                <div id="words-count-container">Words: <span id="words-found-count">0</span> / <span id="words-to-find">3</span></div>
+            </div>
+            <div id="word-display-container">
+                <div id="current-word"></div>
+                <div id="message"></div>
+            </div>
+            <div id="letter-grid"></div>
+            <div id="found-words-container">
+                <h3>Found Words</h3>
+                <div id="found-words-list"></div>
+            </div>
+        </main>
+        <button id="view-records-btn">View Records</button>
+    </div>
+
+    <div id="records-container" class="hidden">
+        <div class="records-box">
+            <h2>Player Records</h2>
+            <div id="password-section">
+                <input type="password" id="password-input" placeholder="Enter Password">
+                <button id="password-btn">Access Records</button>
+            </div>
+            <div id="records-display" class="hidden">
+                <ul id="records-list"></ul>
+                <button id="clear-all-records-btn" class="danger-btn">Clear All Records</button>
+            </div>
+            <button id="close-records-btn">Close</button>
+        </div>
+    </div>
+    
+    <div id="level-up-modal" class="hidden">
+        <div class="modal-content">
+            <h2 id="modal-title">Stage Complete!</h2>
+            <p id="modal-message">Get ready for the next stage.</p>
+            <button id="next-stage-btn">Continue</button>
+        </div>
+    </div>
+
+
+    <script src="script.js"></script>
+</body>
+</html>
